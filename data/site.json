@@ -1,0 +1,16 @@
+{
+    "name": "UoL Karate Club",
+    "description": "University of Liverpool Karate club website",
+    "url": "",
+    "lang": "en",
+    "github": {
+        "url": ""
+    },
+    "author": {
+        "name": "Dovydas Balionis",
+        "handle": "",
+        "email": "balionisd@gmail.com"
+    },
+    "date": 2023,
+    "copyright": "2023"
+}
