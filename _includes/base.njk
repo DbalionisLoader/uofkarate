@@ -31,7 +31,7 @@ title: Karate Homepage
           </a>
         </div> 
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">University of Liverpool Karate Club</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">University of Liverpool <br> Karate Club</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
        
     </div>
@@ -65,18 +65,24 @@ title: Karate Homepage
             </li>
             <!-- Add more links as needed -->
         </ul>
+        <div class="social-wrap mt-4">
+          <i class="fa-brands fa-facebook fb"></i>
+         <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-instagram insta"></i>
+          <i class="fa-brands fa-youtube tube"></i>
+        </div>
     </div>
 </div>
 
 <!-- Top Navbar -->
 <nav class="navbar navbar-light">
     <div class="container-fluid d-flex justify-content-between header-container pb-3">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+        <button class="navbar-toggler ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="logo text-center">
           <a class="site-logo" href="/">
-         <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo" width="80" height="auto">
+         <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo" width="70" height="auto">
           </a>
           <h4 class="pt-2">University of Liverpool Karate Club</h4>
         </div>
@@ -86,7 +92,6 @@ title: Karate Homepage
 
 <!-- Page Content -->
 <div class="container mt-5">
-   <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo" width="30" height="30">
         {{ content | safe }}
   
 

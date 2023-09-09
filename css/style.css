@@ -23,3 +23,28 @@ body {
     box-shadow: none;
 }
 
+/* Nav menu */
+
+.social-wrap i {
+font-size: 40px;
+margin-right: 8px;
+}
+
+.social-wrap .fb {
+    color:#0f90f2;
+}
+
+.social-wrap .insta {
+   color: #9d35b8;
+}
+
+.social-wrap .tube {
+    color: #ff0000;
+ }
+
+
+.nav-item a:hover {
+    color: #e90606;
+ }
+
+
