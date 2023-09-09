@@ -1,9 +1,20 @@
 
-
-
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-size: .875rem;
 }
+
+.content-container {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+
 
 .header-container{
     border-bottom: solid 1px #c8c8c8;
