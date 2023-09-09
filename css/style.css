@@ -59,3 +59,34 @@ margin-right: 8px;
  }
 
 
+/* Footer */
+
+/* For mobile screens, default behavior */
+/* .footer-wrap footer {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .footer-wrap .col {
+    order: 0; 
+}
+
+.footer-wrap .col:nth-child(1) { /* your logo column 
+    order: 1;
+} */
+
+/* For larger screens, reset order to source order */
+/* @media (max-width: 576px) { 
+    .footer-wrap footer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer-wrap .col {
+        order: 0;
+    }
+
+    .footer-wrap .col:nth-child(1) { 
+        order: 1; 
+    }
+} */
