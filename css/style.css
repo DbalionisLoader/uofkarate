@@ -10,7 +10,7 @@ body {
     flex: 1 0 auto;
 }
 
-footer {
+.footer-wrap{
     flex-shrink: 0;
 }
 
@@ -59,6 +59,20 @@ margin-right: 8px;
  }
 
 
+/* Hero sections */
+
+.header-wrap {
+ padding-left: 16px;
+}
+
+.club-bits {
+    background-color: #212b58;
+}
+
+.club-bits h3 {
+    color: white;
+    text-align: center;
+}
 /* Footer */
 
 /* For mobile screens, default behavior */
