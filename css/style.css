@@ -67,7 +67,7 @@ margin-right: 8px;
     font-weight: 600;
     padding-bottom: 24px;
 }
-.header-wrap p{
+.header-wrap p, .about-text-wrap p  {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -103,6 +103,31 @@ margin-right: 8px;
     font-size: 18px;
     text-wrap: wrap;
 }
+
+/* About us section */
+
+.about-wrap{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.about-text-wrap h1 {
+    font-size: 36px;
+    font-weight: 600px;
+    line-height: 1.3rem;
+    padding-bottom: 24px;
+}
+
+.about-text-wrap p {
+    padding-bottom: 12px;
+}
+
+.about-text-wrap a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 /* Footer */
 
 /* For mobile screens, default behavior */
