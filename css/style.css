@@ -21,10 +21,7 @@ body {
     min-height: 125px;
 }
 
-/* .offcanvas-body,.offcanvas-header{
-    width: 300px;
-}
- */
+
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -37,7 +34,7 @@ body {
 /* Nav menu */
 
 .social-wrap i {
-font-size: 40px;
+font-size: 30px;
 margin-right: 8px;
 }
 
@@ -62,16 +59,49 @@ margin-right: 8px;
 /* Hero sections */
 
 .header-wrap {
- padding-left: 16px;
+ padding-right: 48px;
+ margin-right: 48px;
 }
 
-.club-bits {
+.header-wrap h1{
+    font-weight: 600;
+    padding-bottom: 24px;
+}
+.header-wrap p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7a7a7a;
+    padding-bottom: 24px;
+}
+
+.main-button{
+    width: 200px;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 600px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 2px;
+    background-color: #212b58;
+    color: white;
+}
+
+.main-button:hover{
+    background-color: #3c4a85;
+}
+
+.selling-point-wrap{
     background-color: #212b58;
 }
 
-.club-bits h3 {
+
+
+.club-bits p {
     color: white;
     text-align: center;
+    font-size: 18px;
+    text-wrap: wrap;
 }
 /* Footer */
 
