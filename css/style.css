@@ -111,10 +111,13 @@ margin-right: 8px;
     margin-bottom: 150px;
 }
 
-.about-text-wrap h1 {
+.about-text-wrap h1, .class-times h1 {
     font-size: 36px;
     font-weight: 600px;
     line-height: 1.3rem;
+}
+
+.about-text-wrap h1{
     padding-bottom: 24px;
 }
 
@@ -126,6 +129,18 @@ margin-right: 8px;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+}
+
+
+/* Class Times section */
+
+.timetable-wrap{
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.class-times p{
+    font-size: 16px;
 }
 
 /* Footer */
