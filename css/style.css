@@ -106,12 +106,12 @@ margin-right: 8px;
 
 /* About us section */
 
-.about-wrap{
+.about-wrap,.event-wrapper{
     margin-top: 150px;
     margin-bottom: 150px;
 }
 
-.about-text-wrap h1, .class-times h1 {
+.about-text-wrap h1, .class-times h1, .event-header h1{
     font-size: 36px;
     font-weight: 600px;
     line-height: 1.3rem;
@@ -142,6 +142,56 @@ margin-right: 8px;
 .class-times p{
     font-size: 16px;
 }
+
+/* Event Section */
+.event-card {
+    background-color: #F8F8F8; 
+}
+
+.event-card h5 {
+ font-size: 28px;
+ font-weight: 400; 
+ color: #494949; 
+}
+
+.event-card h4 {
+    font-size: 24px;
+    font-weight: 600; 
+   }
+
+.event-card p {
+    font-size: 16px;
+    font-weight: 400; 
+    text-overflow: ellipsis;
+   }
+
+.event-card small {
+    font-size: 14px;
+    font-weight: 400; 
+    color: #494949; 
+   }
+.event-card i {
+    font-size: 18px;
+}   
+
+/* ABOUT PAGE */
+
+.hero-section {
+    background-image: url('../images/sitting-karate-1920.jpg');
+    background-size: cover; /* Ensure the image covers the full width and height */
+    background-position: center center; /* Center the background image */
+    height: 400px; /* You can adjust this value based on your desired cropping */
+    width: 100%; /* Full width */
+    position: relative; /* Establish a stacking context for child elements */
+  }
+  
+  .hero-section h1 {
+    z-index: 1; /* Ensures text is on top */
+    color: white;
+    font-size: 48px;
+    font-weight: 600px;
+    line-height: 1.3rem;
+  }
 
 /* Footer */
 
