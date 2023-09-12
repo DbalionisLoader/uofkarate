@@ -18,7 +18,39 @@ body {
 
 .header-container{
     border-bottom: solid 1px #c8c8c8;
-    min-height: 125px;
+}
+
+ .header-container h4{
+    font-size: calc(16px + 0.5vw);
+} 
+/* Nav bar */
+
+#navbar {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    background-color: #ffffff; /* or your preferred color */
+    z-index: 1000; /* Optional: To ensure navbar stays above other content */
+    transition: all 0.3s; /* Smooth transition for size changes */
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-container {
+    padding: 8px 0; /* Initial spacing */
+}
+
+.header-container.minimized {
+    padding: 4px 0; /* Reduced spacing when minimized */
+}
+
+.logo img {
+    width: 70px; /* Initial width */
+    transition: all 0.3s; /* Smooth transition for size changes */
+}
+
+.logo.minimized img {
+    width: 50px; /* Reduced width when minimized */
 }
 
 
@@ -32,6 +64,7 @@ body {
 }
 
 /* Nav menu */
+
 
 .social-wrap i {
 font-size: 30px;

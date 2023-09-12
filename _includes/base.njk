@@ -19,13 +19,14 @@ title: Karate Homepage
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {# Local CSS #}
     <link href="../css/style.css" rel="stylesheet">
-  
+    {# JS Script #}
+   <script defer src="../js/main.js"  ></script>
      	
 </head>
 <body>
 <!-- Off-canvas Menu -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-     <div class="logo d-flex justify-content-center py-4">
+     <div class="menulogo d-flex justify-content-center py-4">
           <a class="site-logo" href="/">
          <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo" width="100" height="100">
           </a>
@@ -43,10 +44,10 @@ title: Karate Homepage
         </div>  #}
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-                <a class="nav-link" href="">Home</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">About the club</a>
+                <a class="nav-link" href="/about/">About the club</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Schedule</a>
@@ -75,19 +76,30 @@ title: Karate Homepage
 </div>
 
 <!-- Top Navbar -->
-<nav class="navbar navbar-light pb-0 pt-2">
-    <div class="container-fluid d-flex justify-content-between header-container pb-3">
+<nav id="navbar" class="navbar navbar-light p-0 ">
+    <div class="container-fluid d-flex justify-content-between header-container full">
         <button class="navbar-toggler ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="logo text-center">
           <a class="site-logo" href="/">
-         <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo" width="70" height="auto">
+         <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo">
           </a>
           <h4 class="pt-2">University of Liverpool Karate Club</h4>
         </div>
         <div></div>
     </div>
+ {#    <div class="minimized container-fluid d-flex justify-content-between header-container">
+      <button class="navbar-toggler ms-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+         <div class="logo text-center">
+          <a class="site-logo" href="/">
+         <img src="../images/karatelogo.svg" alt="University Of Liverpool Karate logo" width="70" height="auto">
+          </a>
+    </div>
+     <div></div>
+     </div> #}
 </nav>
 
 <!-- Page Content -->
@@ -104,8 +116,8 @@ title: Karate Homepage
     <div class="col mb-3">
       <h5>About Us</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About the Club</a></li>
+        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
+        <li class="nav-item mb-2"><a href="/about/" class="nav-link p-0 text-muted">About the Club</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Schedule</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Membership</a></li>
         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Sponsorhip</a></li>
