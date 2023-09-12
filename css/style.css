@@ -177,10 +177,10 @@ margin-right: 8px;
 /* ABOUT PAGE */
 
 .hero-section {
-    background-image: url('../images/sitting-karate-1920.jpg');
+    background:  linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(28,34,34,0.7811857164740896) 90%) , url('../images/sitting-karate-1920.jpg');
     background-size: cover; /* Ensure the image covers the full width and height */
     background-position: center center; /* Center the background image */
-    height: 400px; /* You can adjust this value based on your desired cropping */
+    height: 480px; /* You can adjust this value based on your desired cropping */
     width: 100%; /* Full width */
     position: relative; /* Establish a stacking context for child elements */
   }
@@ -189,8 +189,15 @@ margin-right: 8px;
     z-index: 1; /* Ensures text is on top */
     color: white;
     font-size: 48px;
-    font-weight: 600px;
+    font-weight: 600;
     line-height: 1.3rem;
+    margin: 0;
+    padding-bottom: 60px;
+
+  }
+
+  .body-text p{
+    font-size: 16px;
   }
 
 /* Footer */
