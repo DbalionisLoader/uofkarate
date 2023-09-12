@@ -29,23 +29,23 @@ body {
     position: -webkit-sticky; /* For Safari */
     position: sticky;
     top: 0;
-    background-color: #ffffff; /* or your preferred color */
-    z-index: 1000; /* Optional: To ensure navbar stays above other content */
-    transition: all 0.3s; /* Smooth transition for size changes */
+    background-color: #ffffff; 
+    z-index: 1000; 
+    transition: all 0.3s; 
     margin: 0;
     padding: 0;
   }
 
   .header-container {
-    padding: 8px 0; /* Initial spacing */
+    padding: 8px 0; 
 }
-
+/* Reduced spacing when minimized */
 .header-container.minimized {
-    padding: 4px 0; /* Reduced spacing when minimized */
+    padding: 4px 0; 
 }
 
 .logo img {
-    width: 70px; /* Initial width */
+    width: 70px; /* Initial width -removed from inline width */
     transition: all 0.3s; /* Smooth transition for size changes */
 }
 
@@ -91,10 +91,10 @@ margin-right: 8px;
 
 /* Hero sections */
 
-.header-wrap {
- padding-right: 48px;
+/* .header-wrap {
+ 
  margin-right: 48px;
-}
+} */
 
 .header-wrap h1{
     font-weight: 600;
@@ -147,7 +147,8 @@ margin-right: 8px;
 .about-text-wrap h1, .class-times h1, .event-header h1{
     font-size: 36px;
     font-weight: 600px;
-    line-height: 1.3rem;
+  /*   line-height: 1.3rem; */
+    /* color: red; */
 }
 
 .about-text-wrap h1{
@@ -233,34 +234,3 @@ margin-right: 8px;
     font-size: 16px;
   }
 
-/* Footer */
-
-/* For mobile screens, default behavior */
-/* .footer-wrap footer {
-    display: flex;
-    flex-direction: column;
-} */
-
-/* .footer-wrap .col {
-    order: 0; 
-}
-
-.footer-wrap .col:nth-child(1) { /* your logo column 
-    order: 1;
-} */
-
-/* For larger screens, reset order to source order */
-/* @media (max-width: 576px) { 
-    .footer-wrap footer {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .footer-wrap .col {
-        order: 0;
-    }
-
-    .footer-wrap .col:nth-child(1) { 
-        order: 1; 
-    }
-} */

@@ -4,15 +4,17 @@ eleventyImport:
   collections: ["posts"]
 ---    
 
-    <div class="container d-flex p-0 mt-5"> 
-      <div class="header-wrap">
+    <div class="container p-4 p-md-0 mt-5"> 
+      <div class="row">
+       <div class="col-md-6 order-2 order-md-1 header-wrap">  
         <h1>Welcome to <br> The University Of Liverpool <br> Karate Club!</h1>
         <p>Excepteur ipsum ea nostrud voluptate in duis in aliquip. Eiusmod esse incididunt et deserunt laborum pariatur id voluptate ex labore cupidatat elit id nulla. Fugiat Lorem eiusmod cillum tempor est ad ullamco ad nostrud id amet id et ut. Culpa id excepteur veniam mollit dolore commodo esse dolore.</p>
           <button class="main-button" role="button to view join karate club page">Join us</button>
       </div>
-     <div class="hero-image-wrap">
-        <img src="./images/karate-hero.png" alt="">
+     <div class="col-md-6 order-1 order-md-2 hero-image-wrap mb-4 mb-md-0">
+        <img src="./images/karate-hero.png" class="img-fluid" alt="">
      </div>
+    </div>
     </div>
     <div class="container-fluid selling-point-wrap">
     <div class="container club-bits my-5 py-3 py-md-4">
@@ -24,11 +26,11 @@ eleventyImport:
     </div>
   </div>
 
-   <section class="about-wrap container p-0">
+   <section class="about-wrap container p-4 p-md-0">
         <div class="row"> 
              <!-- Image section left of text -->
           <div class="col-md-6">
-                <img src="./images/karate-group-1.png" alt="The most recent group picture of the UoL Karate club members and staff" class="img-fluid">
+                <img src="./images/karate-group-1.png" alt="A group picture of the UoL Karate club members and staff" class="img-fluid">
             </div>
             <!-- Text sections right of image -->
             <div class="col-md-6 about-text-wrap m-0">   
@@ -41,6 +43,7 @@ eleventyImport:
             </div>
         </div>
     </section>
+    {# Timetable section #}
     <section class="container-fluid bg-dark text-light class-times">
       <div class="container text-center timetable-wrap">
         <h1>Class Time Table</h1>
