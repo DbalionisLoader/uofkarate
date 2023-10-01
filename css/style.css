@@ -128,13 +128,19 @@ margin-right: 8px;
     background-color: #212b58;
 }
 
+.hero-icons img{
+  width: 50px;
+  height: 50px;
+}
+
 
 
 .club-bits p {
     color: white;
-    text-align: center;
+    text-align: left;
     font-size: 18px;
     text-wrap: wrap;
+    font-weight: 600;
 }
 
 /* About us section */
