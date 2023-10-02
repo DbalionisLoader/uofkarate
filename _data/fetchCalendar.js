@@ -13,12 +13,16 @@ const {google} = require('googleapis'); /* Required for google object import */
 const {auth} = require('google-auth-library'); /* Required for auth object */
 const fs = require('fs'); /* node.js file system to read json and write to json*/
 const axios = require('axios'); /* Promise bases ? HTTP client */
+require('dotenv').config(); 
 
 //Create creadiant object 
-const crediantials = JSON.parse(fs.readFileSync('uol-karate-events-513d09d09e24.json','utf8'));
+/*  const crediantials = JSON.parse(fs.readFileSync('uol-karate-events-513d09d09e24.json','utf8'));  */
+ const credentials = JSON.parse(process.env.CREDS); 
+
+
 
 async function fetchGoogleCalenderEvents() {
-    const client = auth.fromJSON(crediantials); //Authenticate user object
+    const client = auth.fromJSON(credentials); //Authenticate user object
     client.scopes = ['https://www.googleapis.com/auth/calendar.readonly']; //Scope to read only calendar
 
     //Initialize google calendar API client - version and authenticate object
