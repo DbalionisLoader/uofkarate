@@ -113,30 +113,40 @@ eleventyImport:
       <div class="event-header">
         <h1>Upcoming Events</h1>
       </div>
-      <div class="container d-flex flex-column justify-content-center align-items-center mt-5 p-0">
-    <div class="card event-card border-0" >
+ {#      <div>
+        <h1>EVENT API TEST</h1>
+  {% for event in calendarEvents %}
+    <li>{{ event.summary }} on {{ event.start | formatDatetime }}</li>
+    <li>{{ event.start | formatWeekDay }}</li> 
+    <li>{{event.desciption}}</li>
+    <li> {{event.location}}</li>
+  {% endfor %}
+      </div> #}
+
+      <div class="container d-flex flex-column justify-content-left p-0 mt-5 ">
+    {% for event in calendarEvents %}
+    <div class="card event-card border-0 mb-4" >
         <div class="row no-gutters">
             <!-- Date Section -->
-            <div class="col-3 col-md-2 d-flex flex-column justify-content-center align-items-center border-right">
-                <h5 class="mb-0 pb-2">Mon</h5>
-                <h5 class="mb-0">15</h5>
-            
+            <div class="col-1 col-md-2 px-5 px-5 d-flex flex-column justify-content-center align-items-center border-right">
+                <h5 class="mb-0 pb-2 text-center">{{ event.start | formatWeekDay }}</h5>
             </div>
             
             <!-- Event Details Section -->
             <div class="col-9 col-lg-7 d-flex flex-column justify-content-center py-3 pe-5  px-lg-3">
-                <small class="mb-2">September 15, 2023 - 6:00 PM</small>
-                <h4 class="mb-2">Freshers Fair</h4>
-                <p class="mb-2">Come down to the karate fresher fair booth, say hi to the commite members.</p> 
-                <small class="mb-2"><i class="bi bi-geo-alt-fill pe-2"></i>Liverpool Guild of Students</small>
+                <small class="mb-2">{{ event.start | formatDatetime }}</small>
+                <h4 class="mb-2">{{ event.summary }}</h4>
+                <p class="mb-2">{{event.desciption}}</p> 
+                <small class="mb-2"><i class="bi bi-geo-alt-fill pe-2"></i>{{event.location}}</small>
             </div>
             
             <!-- Image Section -->
-            <div class="col-12 col-lg-3 order-first order-lg-last">
+            <div class="card-image col-12 col-lg-3 order-first order-lg-last">
                 <img src="./images/karate-group-1.png" alt="Event Image" class="img-fluid h-100">
             </div>
         </div>
     </div>
+     {% endfor %}
 </div>
     </section>
 

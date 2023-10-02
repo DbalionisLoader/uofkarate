@@ -1,5 +1,7 @@
 
 const eleventyGoogleFonts = require("eleventy-google-fonts");
+const {format, formatDistanceToNow } = require('date-fns');
+
 module.exports = function(eleventyConfig) {
     
     /* Plugins */
@@ -9,6 +11,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("images");
     eleventyConfig.addPassthroughCopy("images/png");
     eleventyConfig.addPassthroughCopy("js");
+    eleventyConfig.addPassthroughCopy("_data/js");
     /* Custom Filters */
     eleventyConfig.addCollection("examplePosts", function(collection) {
         return collection.getFilteredByGlob("./posts/examples/*.md");
@@ -17,6 +20,21 @@ module.exports = function(eleventyConfig) {
       eleventyConfig.addCollection("posts", function(collection) {
         return collection.getFilteredByGlob("./posts/portfolio/*.md");
       });
+
+      /* Date/Time filters for event times */ 
+      /* Full event date filter */   
+      eleventyConfig.addFilter("formatDatetime", function(dateStr){
+        return format(new Date(dateStr), 'MMMM d, yyyy - h:mm a');
+      });
+
+      //Weekday and day of the month filter
+      eleventyConfig.addFilter("formatWeekDay", function(dateStr){
+        const dayOfWeek = format(new Date(dateStr), 'EEE' );
+        const dayOfWeekNumber = format(new Date(dateStr), 'do' );
+        return `${dayOfWeek} ${dayOfWeekNumber}`;
+      });
+
+
 
     /* Returns */  
      return { 

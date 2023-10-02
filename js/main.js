@@ -2,6 +2,30 @@
 
 console.log("Connected");
 
+/* Function to randomly image to each event card on page load */
+document.addEventListener("DOMContentLoaded", function(){
+    //Array of carefully curated event images
+    const imageUrlArr = [
+    'karate-group-1.png',
+    'sitting-karate-1920.jpg',
+    'karate-hero.png',
+    ];
+
+
+const cards = document.querySelectorAll('.card');
+console.log(cards);
+cards.forEach((card, index) => {
+    const cardImage = card.querySelector('.card-image img');
+    if (imageUrlArr[index]){
+        cardImage.setAttribute('src', `./images/${imageUrlArr[index]}`);
+    }
+});
+
+});
+
+
+
+/* Navbar minimize on scroll function - check for scroll distance and add/remove minized css class */
 //CHECK SPELLING 
 let  isMinimized = false;
 
@@ -31,3 +55,5 @@ window.addEventListener('scroll', function() {
         
     }
 });
+
+
