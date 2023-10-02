@@ -19,9 +19,6 @@ require('dotenv').config();
 //Create creadiant object 
 /*  const crediantials = JSON.parse(fs.readFileSync('uol-karate-events-513d09d09e24.json','utf8'));  */
  const credentials = JSON.parse(process.env.CREDS); 
- console.log("display crediantials");
- console.log(credentials);
-
 
 async function fetchGoogleCalenderEvents() {
     const client = auth.fromJSON(credentials); //Authenticate user object
