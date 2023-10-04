@@ -1,1 +1,1 @@
-[{"start":"2023-10-04T02:00:00+01:00","summary":"Tester Party","location":"Huddersfield, UK","desciption":"Latest testing party"},{"start":"2023-10-05T16:00:00+01:00","summary":"Anorther testing party","location":"Huddersfield, UK","desciption":"Event API working"}]
+[{"start":"2023-10-05T16:00:00+01:00","summary":"Anorther testing party","location":"Huddersfield, UK","desciption":"Event API working"},{"start":"2023-10-07T04:30:00+01:00","summary":"Test event 3 - netlify","location":"Liverpool, UK","desciption":"Testing if it builds to netlify"}]

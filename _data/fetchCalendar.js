@@ -53,5 +53,5 @@ async function fetchGoogleCalenderEvents() {
     fs.writeFileSync('_data/calendarEvents.json', JSON.stringify(events));
 }
 
-//call function
+//call function - DELETE TO PREVENT DOUBLE API CALL
 fetchGoogleCalenderEvents();
