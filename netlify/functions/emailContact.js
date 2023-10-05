@@ -1,38 +1,47 @@
-/* Serverless-Function to send the contact form data to a gmail as a email */
+/* Serverless-Function to send the contact form data to a gmail as a email 
 
+/* Library */
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-//Event returns object with json data
+//Netlify function
 exports.handler = async function(event, context){
-    //Decline sending form if NOT POST 
+    //Test ZONE
+    console.log("Function emailContact was called");
+    //Check if POST method is used
     if(event.httpMethod !== "POST") {
         return {statusCode: 405, body: "POST method not allowed"}
     }
-    //Event object container body object with json 
+    //Fetch contact form data
     const {name, message} = JSON.parse(event.body);
-
-    //NodeMailer setup
-    let tranporter = nodemailer.createTransport({
+    //Create nodemail trasporter object - Authenticate gmail using OAuth2
+    //Refresh token might need to be changed to send email to correct imbox
+    let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
+            type: 'OAuth2',
             user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS
-
+            clientId: process.env.OAUTH_CLIENT_ID,
+            clientSecret: process.env.OAUTH_CLIENT_SECRET,
+            refreshToken: process.env.OAUTH_REFRESH_TOKEN,
         }
     });
-
+    //Create email message - Need to add a user from field
     let mailOptions = {
-        from: '"Your Name" <your@gmail.com>',
-        to: 'aceintel6@googlemail.com',
+        from: 'dbalionis@outlook.com',
+        to: process.env.GMAIL_USER,
         subject: 'New Contact Message',
         text: `Name: ${name}\nMessage: ${message}`
     };
 
+    console.log(mailOptions);
+    
+    //Send mail try - catch
     try{
-        await tranporter.sentMail(mailOptions)
-        return {stateCode: 200, body: "Message sent"};
+        await transporter.sendMail(mailOptions)
+        return {statusCode: 200, body: JSON.stringify("Message sent")};
     } catch (error) {
-        return {stateCode: 500, body: "Error sending message"};
+        console.error('Error sending email: ', error);
+        return {statusCode: 500, body: JSON.stringify("Error sending message")};
     }
 };
