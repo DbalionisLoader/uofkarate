@@ -1,0 +1,51 @@
+---
+layout: base.njk
+title: contact-us
+---
+<div class="hero-section m-0 mb-5 p-0 d-flex align-items-end">
+    <div class="container ">
+        <h1>Contact us</h1>
+    </div>
+</div>
+<section class="container body-text">
+    <form  id="contactForm" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <!-- Add additional fields as necessary... -->
+    <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        
+        e.preventDefault();
+
+        //Get form data from form object    
+        const formData = new FormData(this);
+        //Pass form data to data object
+        const data = Object.fromEntries(formData);
+
+        fetch('/.netlify/functions/emailContact', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        })
+        .then(response => response.json())
+          .then(data => {
+                 console.log('Success:', data);
+            // Handle success - maybe display a message to the user
+        })
+          .catch((error) => {
+            console.error('Error:', error);
+            });
+         });
+    </script>
+
+   
+</section>
