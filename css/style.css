@@ -291,3 +291,20 @@ margin-right: 8px;
 .form-button:hover{
     background-color: #3c4a85;
 }
+
+/* Form validation css */
+
+.error-message {
+    color: red;
+    display: none;
+}
+
+.form-control-error-outline {
+  /*   border: #e90606 1px solid; */
+    outline: #c30606 solid 1px;
+}
+
+.form-control-valid-outline {
+    /*   border: #e90606 1px solid; */
+      outline: #0ac30d solid 1px;
+  }

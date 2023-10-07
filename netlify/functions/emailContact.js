@@ -13,7 +13,7 @@ exports.handler = async function(event, context){
         return {statusCode: 405, body: "POST method not allowed"}
     }
     //Fetch contact form data
-    const {name, message} = JSON.parse(event.body);
+    const {name, email, subject, message} = JSON.parse(event.body);
     //Create nodemail trasporter object - Authenticate gmail using OAuth2
     //Refresh token might need to be changed to send email to correct imbox
     let transporter = nodemailer.createTransport({
@@ -28,9 +28,9 @@ exports.handler = async function(event, context){
     });
     //Create email message - Need to add a user from field
     let mailOptions = {
-        from: 'dbalionis@outlook.com',
+        from: `${email}`,
         to: process.env.GMAIL_USER,
-        subject: 'New Contact Message',
+        subject: `${subject}`,
         text: `Name: ${name}\nMessage: ${message}`
     };
 

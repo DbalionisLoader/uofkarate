@@ -2,6 +2,7 @@
 layout: base.njk
 title: contact-us
 ---
+
 <section aria-label="Contact us banner" class="hero-section contact-us-hero  d-flex align-items-end">
     <div class="container text-white contact-subheading">
         <h1 tabindex="0" role="heading" aria-level="1" class="mb-4">Contact us</h1>
@@ -13,58 +14,35 @@ title: contact-us
 </div> #}
 <div class="contact-form-wrapper px-2">
 <section role="Contact us form" class="container mx-auto body-text  shadow p-5 contact-form bg-white">
-    <form role="form" id="contactForm">
-    <div class="row mb-3">
-    <div class="col-md-6">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" placeholder="Your full name" class="form-control" id="name" name="name" required>
+    <form role="form" id="contactForm" novalidate>
+    <div class="row mb-4">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" placeholder="Your Name" class="form-control" id="name" name="name" required>
+        <div class="error-message" id="nameError">Name is required.</div>
     </div>
     <div class="col-md-6">
         <label for="email" class="form-label">Email Address</label>
-        <input type="email" placeholder="Your email address" class="form-control" id="email" name="email" required>
+        <input type="email" placeholder="Your email address" class="form-control" id="email" name="email" required >
+        <div class="error-message" id="emailError">A valid email is required.</div>
     </div>
     </div>
     <!-- Add additional fields as necessary... -->
     <div class="row">
-    <div class="col-12 mb-3">
+    <div class="col-12 mb-4">
         <label for="subject" class="form-label">Subject</label>
         <input type="text" placeholder="E.g., Membership Inquiry, Event Question, Coaching Information" class="form-control" id="subject" name="subject" required>
+        <div class="error-message" id="subjectError">A subject is required.</div>
     </div>
-    <div class="col-12 mb-3">
+    <div class="col-12 mb-4">
         <label for="message" class="form-label">Message</label>
         <textarea class="form-control" placeholder="Let us know how we can assist you. E.g., inquire about our membership, upcoming events, or coaching sessions."  id="message" name="message" required></textarea>
+        <div class="error-message" id="messageError">A message is required.</div>
     </div>
     </div>
     <button type="submit" class="form-button btn ">Submit</button>
 </form>
 
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-        
-        e.preventDefault();
-
-        //Get form data from form object    
-        const formData = new FormData(this);
-        //Pass form data to data object
-        const data = Object.fromEntries(formData);
-
-        fetch('/.netlify/functions/emailContact', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: { 'Content-Type': 'application/json' }
-        })
-        
-        .then(response => {
-            console.log(response);
-            return response.json();
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            console.log('Error during post');
-            });
-         });
-    </script>
-
-   
 </section>
 </div>
+{# <script defer src="../js/contact-form-validation.js"></script>  #}
