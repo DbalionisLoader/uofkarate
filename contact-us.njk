@@ -2,23 +2,40 @@
 layout: base.njk
 title: contact-us
 ---
-<div class="hero-section m-0 mb-5 p-0 d-flex align-items-end">
-    <div class="container ">
-        <h1>Contact us</h1>
+<section aria-label="Contact us banner" class="hero-section contact-us-hero  d-flex align-items-end">
+    <div class="container text-white contact-subheading">
+        <h1 tabindex="0" role="heading" aria-level="1" class="mb-4">Contact us</h1>
+         <h2 tabindex="0" class="mb-0">If you have any questions about karate, membership, competitons, drop us a message using the form below</h2>
     </div>
-</div>
-<section class="container body-text">
-    <form  id="contactForm">
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
+</section>
+{# <div class="container text-white contact-subheading mb-3">
+    <h2>If you have any questions about karate, membership, competitons, drop us a message using the form below</h2>
+</div> #}
+<div class="contact-form-wrapper px-2">
+<section role="Contact us form" class="container mx-auto body-text  shadow p-5 contact-form bg-white">
+    <form role="form" id="contactForm">
+    <div class="row mb-3">
+    <div class="col-md-6">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" placeholder="Your full name" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" placeholder="Your email address" class="form-control" id="email" name="email" required>
+    </div>
     </div>
     <!-- Add additional fields as necessary... -->
-    <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" name="message" required></textarea>
+    <div class="row">
+    <div class="col-12 mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <input type="text" placeholder="E.g., Membership Inquiry, Event Question, Coaching Information" class="form-control" id="subject" name="subject" required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col-12 mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" placeholder="Let us know how we can assist you. E.g., inquire about our membership, upcoming events, or coaching sessions."  id="message" name="message" required></textarea>
+    </div>
+    </div>
+    <button type="submit" class="form-button btn ">Submit</button>
 </form>
 
     <script>
@@ -50,3 +67,4 @@ title: contact-us
 
    
 </section>
+</div>
