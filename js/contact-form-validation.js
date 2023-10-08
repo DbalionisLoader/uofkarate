@@ -5,42 +5,76 @@ console.log("Form validation script connected");
 function validateFormData(data){
     let isFormValid = true;
 
-    //Name validation
-    //If empty
-    if(data.name.trim() === ''){
-        document.getElementById('nameError').style.display = 'block';
-        document.getElementById('name').classList.add("form-control-error-outline"); 
-        document.getElementById('name').classList.remove("form-control-valid-outline"); 
-        isFormValid = false;
-    } else {
-        document.getElementById('nameError').style.display = 'none';
-        document.getElementById('name').classList.add("form-control-valid-outline"); 
+    /* UTILITY FUNCTIONS */
+
+
+   /* Utility function to help reduce multiple style.display calls to hide and show error messages */
+   /* PARAMS:
+   elementID = class name of error message below input field 
+   condition = boolean to determine to show or hide error message
+   RETURN:
+   !condition = if error message is show, form is invalid, thus false, 
+   opposite if no error message shown*/
+    function toggleError(elementId,condition){
+        document.getElementById(elementId).style.display = condition ? 'block' : 'none';
+        return !condition;
     }
+
+    /* Utility function to check for empty input field and display valid/invalid outline for input field */
+    /* PARAMS:
+    inputIdName = the id of an input field = must be same same string as error message class name
+    value = user input value from the input field*/
+    /* RETURN:
+    toggleError(errorElementId, isEmpty) = return the boolean value from toggleError class to validate the form */
+
+    function validateNonEmpty(inputIdName, value) {
+       const isEmpty = value.trim() === '';
+       const errorElementId = `${inputIdName}Error`;
+       const inputElement = document.getElementById(inputIdName);
+       
+       //if field empty, toggle on the red outline
+       inputElement.classList.toggle("form-control-error-outline", isEmpty);
+       //if field is not empty, toggle on the greed outline
+       inputElement.classList.toggle("form-control-valid-outline", !isEmpty);
+       
+       return toggleError(errorElementId, isEmpty)
+    }
+
+    /* Validate Email */
+    /* Utility function to check for valid email and correctly display error outline */
+    /* PARAMS:
+    inputIdName = the id of an input field = must be same same string as error message class name
+    value = user input value from the input field*/
+    /* RETURN:
+    toggleError(errorElementId, !isValidEmail) = return the boolean value from toggleError class to validate the form */
+    function validateEmail(inputIdName, value) {
+        const errorElementId = `${inputIdName}Error`;
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        //emailRegex.test(data.email) RETURN FALSE if no or incorrect email
+        const isValidEmail = emailRegex.test(value);
+        const inputElement = document.getElementById(inputIdName);
+        
+       //isValidEmail have to be TRUE to toggle error outline
+       inputElement.classList.toggle("form-control-error-outline", !isValidEmail);
+        // if isValidEmail have to be FALSE to 
+       inputElement.classList.toggle("form-control-valid-outline", isValidEmail);
+        
+        //!isValidEmail is FALSE 
+        return toggleError(errorElementId, !isValidEmail)
+    }
+
+
+    //Name validation
+    isFormValid = validateNonEmpty('name', data.name) && isFormValid; //if form invalid from any other field = false
 
     //Email validation
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if(!emailRegex.test(data.email)){
-        document.getElementById('emailError').style.display = 'block';
-        isFormValid = false;
-    } else {
-        document.getElementById('emailError').style.display = 'none';
-    }
+    isFormValid = validateEmail('email', data.email) && isFormValid;
 
     //Subject validation
-    if(data.subject.trim() === ''){
-        document.getElementById('subjectError').style.display = 'block';
-        isFormValid = false;
-    } else {
-        document.getElementById('subjectError').style.display = 'none';
-    }
+    isFormValid = validateNonEmpty('subject', data.subject) && isFormValid; 
 
     //Message validaiton
-      if(data.message.trim() === '') {
-        document.getElementById('messageError').style.display = 'block';
-        isValid = false;
-    } else {
-        document.getElementById('messageError').style.display = 'none';
-    }
+    isFormValid = validateNonEmpty('message', data.message) && isFormValid; 
 
     return isFormValid;
 }
