@@ -30,8 +30,10 @@ module.exports = function(eleventyConfig) {
       //Weekday and day of the month filter
       eleventyConfig.addFilter("formatWeekDay", function(dateStr){
         const dayOfWeek = format(new Date(dateStr), 'EEE' );
-        const dayOfWeekNumber = format(new Date(dateStr), 'do' );
-        return `${dayOfWeek} ${dayOfWeekNumber}`;
+        const dayOfWeekNumber = format(new Date(dateStr),
+         'do' );
+        const month = format(new Date(dateStr), 'MMMM' );
+        return `${dayOfWeek} ${dayOfWeekNumber} ${month}`;
       });
 
 

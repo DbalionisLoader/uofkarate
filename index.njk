@@ -4,11 +4,11 @@ eleventyImport:
   collections: ["posts"]
 ---    
 
-    <div class="container p-4 p-md-0 mt-5"> 
+    <div class="hero-section-wrap container p-4 p-md-0"> 
       <div class="row">
        <div class="col-md-6 order-2 order-md-1 header-wrap">  
         <h1>Welcome to <br>The University Of Liverpool <br> Karate Club!</h1>
-        <p>Excepteur ipsum ea nostrud voluptate in duis in aliquip. Eiusmod esse incididunt et deserunt laborum pariatur id voluptate ex labore cupidatat elit id nulla. Fugiat Lorem eiusmod cillum tempor est ad ullamco ad nostrud id amet id et ut. Culpa id excepteur veniam mollit dolore commodo esse dolore.</p>
+        <p class="">Are you ready to embark on a journey of self-discovery, discipline, and personal growth? Look no further than the University of Liverpool Karate Club, where we bring the ancient art of Shotokan karate to life within the vibrant academic community of University of Liverpool.</p>
           <button class="main-button" role="button to view join karate club page">Join us</button>
       </div>
      <div class="col-md-6 order-1 order-md-2 hero-image-wrap mb-4 mb-md-0">
@@ -19,11 +19,11 @@ eleventyImport:
     <div class="container-fluid selling-point-wrap">
     <div class="container club-bits my-5 py-3 py-md-4">
       <div class="row">
-        <div class="col-12 col-md hero-icons d-flex align-items-center my-2"><img class="hero-icons me-4 mb-2" src="../images/black-belt-white.svg" alt="My Icon"><p>All grades <br> students and staff are welcome</p></div>
+        <div class="col-12 col-md hero-icons d-flex align-items-center my-2"><img class="hero-icons me-4 mb-2" src="../images/black-belt-white.svg" alt="My Icon"><p>All styles and levels are welcome <br> for university students and staffs</p></div>
         <div class="col-12 col-md hero-icons d-flex align-items-center my-2">
-          <img class="hero-icons me-4 mb-2" src="../images/calendar-white-small.svg" alt="My Icon"><p>We train on <br> Mondays and Fridays, at 8 to 10 pm</p></div>
+          <img class="hero-icons me-4 mb-2" src="../images/calendar-white-small.svg" alt="My Icon"><p>We train 3 times a week: <br> Monday, Wednesday and Friday</p></div>
         <div class="col-12 col-md hero-icons d-flex align-items-center my-2">
-          <img class="hero-icons me-4 mb-2" src="../images/map-pin-white.svg" alt="My Icon"><p>Find us at <br>10 Liverpool Street, LS3 4JDF</p></div>
+          <img class="hero-icons me-4 mb-2" src="../images/map-pin-white.svg" alt="My Icon"><p>Find us at: University Sports Centre <br> Bedford St N, Liverpool L69 7ZN</p></div>
       </div>
     </div>
   </div>
@@ -38,8 +38,8 @@ eleventyImport:
             <div class="col-md-6 about-text-wrap m-0">   
                <!-- Icon section above text -->
                <img class ="mb-4 mt-4"src="../images/karate-gee-icon.svg" alt="Black and white icon of a karate gi" width="70" height="auto">
-                <h1 >About UoL Karate Club</h1>
-                  <p class="m-0">Commodo dolore id amet sit non incididunt est excepteur. Magna proident nisi occaecat duis laborum nulla labore officia pariatur deserunt deserunt. Magna cillum ipsum labore irure eu. Irure sunt quis proident anim velit ullamco occaecat aliqua id esse. Sunt voluptate mollit incididunt ut non deserunt magna ut officia in amet fugiat veniam nisi.</p>
+                <h1 >About UofL Karate Club</h1>
+                  <p class="m-0">The University of Liverpool Karate Club is more than just a club; we are a community of students who share a passion for karate. Led by enthusiastic student leaders, we provide an environment where students of all levels can come together to learn, grow, and excel in the art of karate.</p>
                 {# Read more about link #}  
                 <a href="/about/" title="Read more about the University of Liverpool karate club" tabindex="1">Learn more</a>
             </div>
@@ -111,29 +111,24 @@ eleventyImport:
     </section>
     <section class="container event-wrapper">
       <div class="event-header">
-        <h1>Upcoming Events</h1>
+        <h1>Upcoming Karate Club Events</h1>
       </div>
- {#      <div>
-        <h1>EVENT API TEST</h1>
-  {% for event in calendarEvents %}
-    <li>{{ event.summary }} on {{ event.start | formatDatetime }}</li>
-    <li>{{ event.start | formatWeekDay }}</li> 
-    <li>{{event.desciption}}</li>
-    <li> {{event.location}}</li>
-  {% endfor %}
-      </div> #}
+ 
 
       <div class="container d-flex flex-column justify-content-left p-0 mt-5 ">
+    {% if calendarEvents | length == 0 %}
+    <div><h4 class="text-secondary" tabindex="0">No upcoming events</h4></div>
+    {% else %} 
     {% for event in calendarEvents %}
     <div class="card event-card border-0 mb-4" >
         <div class="row no-gutters">
             <!-- Date Section -->
-            <div class="col-1 col-md-2 px-5 px-5 d-flex flex-column justify-content-center align-items-center border-right">
+            <div class="col-1 col-md-2 px-5 px-5 d-flex flex-column justify-content-center align-items-center border-right order-md-first">
                 <h5 class="mb-0 pb-2 text-center">{{ event.start | formatWeekDay }}</h5>
             </div>
             
             <!-- Event Details Section -->
-            <div class="col-9 col-lg-7 d-flex flex-column justify-content-center py-3 pe-5  px-lg-3">
+            <div class="col-9 col-lg-7 d-flex flex-column justify-content-center py-3 pe-5  px-lg-3 order-md-second">
                 <small class="mb-2">{{ event.start | formatDatetime }}</small>
                 <h4 class="mb-2">{{ event.summary }}</h4>
                 <p class="mb-2">{{event.desciption}}</p> 
@@ -141,12 +136,14 @@ eleventyImport:
             </div>
             
             <!-- Image Section -->
-            <div class="card-image col-12 col-lg-3 order-first order-lg-last">
+            <div class="card-image col-12 col-lg-3 order-first order-md-last">
                 <img src="./images/karate-group-1.png" alt="Event Image" class="img-fluid h-100">
             </div>
         </div>
     </div>
-     {% endfor %}
+    
+     {% endfor %} 
+     {% endif %}
 </div>
     </section>
 

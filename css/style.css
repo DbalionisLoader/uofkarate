@@ -102,16 +102,27 @@ margin-right: 8px;
  margin-right: 48px;
 } */
 
+.hero-section-wrap{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+
 .header-wrap h1{
     font-weight: 600;
     padding-bottom: 24px;
+    font-size: 48px;
 }
 .header-wrap p, .about-text-wrap p  {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #7a7a7a;
+    color: #1b1b1b;
     padding-bottom: 24px;
+}
+
+.header-wrap p{
+    padding-right: 90px;
 }
 
 .main-button{

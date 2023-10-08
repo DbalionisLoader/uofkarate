@@ -29,7 +29,7 @@ async function fetchGoogleCalenderEvents() {
 
     //Fetch event list with parameters
     const response = await calendar.events.list({
-        calendarId: 'aceintel6@googlemail.com', //from which calendar
+        calendarId: 'karate.uol@gmail.com', //from which calendar
         maxResults: 5, //no of results
         singleEvents: true, //single occurance of recurring events
         orderBy: 'startTime', //sort by start time
