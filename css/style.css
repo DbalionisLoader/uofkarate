@@ -319,3 +319,14 @@ margin-right: 8px;
     /*   border: #e90606 1px solid; */
       outline: #0ac30d solid 1px;
   }
+
+/* MEMBERSHIP PAGE */
+
+.membership-content p{
+    font-size: 18px;
+}
+
+.membership-content ul{
+    font-size: 18px;
+    
+}
