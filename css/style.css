@@ -228,8 +228,14 @@ margin-right: 8px;
     color: #494949; 
    }
 .event-card i {
-    font-size: 18px;
+    font-size: 16px;
+  
 }   
+
+.event-date h5{
+    font-size: 1.2rem; 
+     font-weight: 600;
+}
 
 /* ABOUT PAGE */
 
@@ -289,7 +295,7 @@ margin-right: 8px;
 
 .form-button{
     width: 150px;
-    height: 60px;
+    height: 52px;
     font-size: 18px;
     font-weight: 600px;
     letter-spacing: 1px;
