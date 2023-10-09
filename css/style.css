@@ -97,14 +97,19 @@ margin-right: 8px;
 
 /* Hero sections */
 
-/* .header-wrap {
- 
- margin-right: 48px;
-} */
+
 
 .hero-section-wrap{
     margin-top: 150px;
     margin-bottom: 150px;
+}
+
+@media (max-width: 960px){
+    .hero-section-wrap{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+   
 }
 
 
@@ -167,11 +172,20 @@ margin-right: 8px;
     margin-bottom: 150px;
 }
 
+@media (max-width: 960px){
+    .about-wrap{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .event-wrapper{
+        margin-top: 40px;
+    }
+}
+
+
 .about-text-wrap h1, .class-times h1, .event-header h1{
-    font-size: 36px;
+    font-size: 1.8rem;
     font-weight: 600px;
-  /*   line-height: 1.3rem; */
-    /* color: red; */
 }
 
 .about-text-wrap h1{
