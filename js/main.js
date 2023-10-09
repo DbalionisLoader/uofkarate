@@ -11,9 +11,9 @@ document.addEventListener("DOMContentLoaded", function(){
     'karate-hero.png',
     ];
 
-
-const cards = document.querySelectorAll('.card');
-console.log(cards);
+//Select all cards with class name .event-card ENSURE no other cards use same name
+const cards = document.querySelectorAll('.event-card');
+// TEST console.log(cards);
 cards.forEach((card, index) => {
     const cardImage = card.querySelector('.card-image img');
     if (imageUrlArr[index]){

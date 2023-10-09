@@ -185,7 +185,7 @@ margin-right: 8px;
 
 .about-text-wrap h1, .class-times h1, .event-header h1{
     font-size: 1.8rem;
-    font-weight: 600px;
+    font-weight: 600;
 }
 
 .about-text-wrap h1{
@@ -213,6 +213,21 @@ margin-right: 8px;
 .class-times p{
     font-size: 16px;
 }
+
+
+
+/* Class schedule cards */
+
+.card-body h5{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.card-body h6{
+    font-size: 1rem;
+}
+
+
 
 /* Event Section */
 .event-card {
