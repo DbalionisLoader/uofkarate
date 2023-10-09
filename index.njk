@@ -130,12 +130,12 @@ eleventyImport:
     <div class="card event-card border-0 mb-4" >
         <div class="row no-gutters">
             <!-- Date Section -->
-            <div class="col-3 col-md-2 ps-4 px-md-5 d-flex flex-column justify-content-center align-items-center border-right order-md-second event-date">
+            <div class="col-3 col-md-2 pe-1 px-lg-5 m-auto d-flex flex-column justify-content-center align-items-center border-right order-second order-lg-first event-date">
                 <h5 class="mb-0 pb-2 text-center">{{ event.start | formatWeekDay }}</h5>
             </div>
             
             <!-- Event Details Section -->
-            <div class="col-9 col-lg-7 d-flex flex-column justify-content-center py-3 px-lg-3 order-second order-md-third">
+            <div class="col-9 col-lg-7 d-flex flex-column justify-content-center py-3 px-lg-3 order-third sorder-lg-second">
                 <small class="mb-2">{{ event.start | formatDatetime }}</small>
                 <h4 class="mb-2">{{ event.summary }}</h4>
                 <p class="mb-2">{{event.desciption}}</p> 
@@ -143,7 +143,7 @@ eleventyImport:
             </div>
             
             <!-- Image Section -->
-            <div class="card-image col-12 col-lg-3 order-first order-md-last">
+            <div class="card-image col-12 col-lg-3 order-first order-lg-last">
                 <img src="./images/karate-group-1.png" alt="Event Image" class="img-fluid h-100">
             </div>
         </div>

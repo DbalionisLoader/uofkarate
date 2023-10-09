@@ -263,7 +263,14 @@ margin-right: 8px;
 
 .event-date h5{
     font-size: 1.2rem; 
-     font-weight: 600;
+    font-weight: 600;
+}
+
+@media(max-width: 751px) {
+    .event-date h5{
+        font-size: 0.9rem; 
+        font-weight: 600;
+    }
 }
 
 /* ABOUT PAGE */
