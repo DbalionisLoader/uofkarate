@@ -380,6 +380,22 @@ margin-right: 8px;
       outline: #0ac30d solid 1px;
   }
 
+#submitted-message{
+    font-size: 18px;
+    font-weight: 600;
+    outline: #0ac30d 2px solid;
+    padding: 10px;
+    display: none;
+    border-radius: 5px;
+}
+
+#return-home{
+    display: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
 /* MEMBERSHIP PAGE */
 
 .membership-content p{

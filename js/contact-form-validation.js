@@ -1,6 +1,22 @@
 console.log("Form validation script connected");
 
+/* Global  Utility */
 
+//Function to remove input and text field outlines after form submitted and reset
+function removeOutline(){
+        // Get all form input elements
+        const formInputs = document.querySelectorAll('input');
+        const messageArea = document.getElementById('message');
+        // Remove the green and red outline classes from all input elements
+        formInputs.forEach(input => {
+            input.classList.remove('form-control-error-outline');
+            input.classList.remove('form-control-valid-outline');
+        });
+        //Remove textarea outline textarea is not a input
+        messageArea.classList.remove('form-control-error-outline');
+        messageArea.classList.remove('form-control-valid-outline');
+        
+}
 
 function validateFormData(data){
     let isFormValid = true;
@@ -98,18 +114,27 @@ function submitFormData(data){
 }
 document.getElementById('contactForm').addEventListener('submit', function(e) {
         
-      console.log("clicked submit");   
-      e.preventDefault(); 
+    console.log("clicked submit");   
+    e.preventDefault(); 
 
-     //Get form data from form object    
-     const formData = new FormData(this);
-     //Pass form data to data object
-     const data = Object.fromEntries(formData);
+    const submittedText = document.getElementById('submitted-message');
+    const returnhomediv = document.getElementById('return-home');     
+    console.log(submittedText);
+    //Get form data from form object    
+    const formData = new FormData(this);
+    //Pass form data to data object
+    const data = Object.fromEntries(formData);
 
-     if(validateFormData(data)){
+    if(validateFormData(data)){
         console.log("Form is valid", data);  
-        submitFormData(data); 
-     } else {
-        console.log("Form validation failed", data); 
-     }
+        //Remove input outline
+        removeOutline();
+        /* submitFormData(data);  */
+        submittedText.style.display = 'block';
+        returnhomediv.style.display = 'block';
+        this.reset();
+    } else {
+        console.log("Form validation failed", data);
+        submittedText.style.display = 'none'; 
+    }
 });
