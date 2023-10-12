@@ -1,19 +1,18 @@
+/* Function to server side validate the contact form, called by emailContact.js
+If any validaiton fails returns a statuscode with error message */
 module.exports = {
   validateForm: (formData) => {
     try{
-    /* const data = JSON.parse(formData.body); */
-
-    
     //Object destructuring - retrieve the form input as separate variables
     const { name, email, subject, message } = formData;
 
     //Input validation - check if empty
     if(!name || !email || !subject || !message ) {
-      console.log("Empty fields found");
+      console.log("Empty fields found"); 
       return {
         statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({message: 'All fields required.'}),
-        
       };
     }
   
@@ -21,6 +20,7 @@ module.exports = {
      if (name.length > 100 || email.length > 100 || subject.length > 100 || message.length > 600) {
       return {
           statusCode: 400,
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: 'Input size limit exceeded.' }),
       };
     }
@@ -31,10 +31,12 @@ module.exports = {
       console.log("Wrong email found");
       return {
         statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: 'Incorrect email address' }),
       };
     }
-
+    
+  
 } catch (error) {
   return {
     statusCode: 400,

@@ -100,18 +100,27 @@ const showModal = (modalContent) =>{
  
     modalContainer = document.getElementById(modalContent);
     if(modalContainer){
-            modalContainer.classList.add('show-modal')
+            modalContainer.classList.add('show-modal');
     }
 };
-/* Modal close function */
 
+
+/* Modal close function */
+/* Remove show-modal css class to hide the modal */
 
 function closeModal(){
     let modalContainer = document.getElementById('modal-container');
     modalContainer.classList.remove('show-modal');
 };
 
-
+/* Show response message error to user utility class */
+/* PARAMS:
+message: The response data.body.message from emailValidator.js */
+function showMessage(message) {
+    const messageContainer = document.getElementById('submitted-message');
+    messageContainer.innerHTML = `Something went wrong: ${message} Please try again`;
+    messageContainer.style.display = 'block'
+  }
 
 /* Function to call emailcontact serverless function to create and send a nodemail email to gmail */
 function submitFormData(data){
@@ -123,13 +132,31 @@ function submitFormData(data){
     })
     
     .then(response => {
-        console.log(response);
-        return response.json();
-    })
-    .catch((error) => {
+        console.log('Full response:', response); // Log the entire response
+      //  responseFromServer = response;  Store the response in the variable
+        if (response.ok) {
+            showModal('modal-container');
+            return response.json();
+        } else {
+          return response.text();
+        }
+      })
+      .then(data => {
+        console.log('Data from server:', data);
+        if (data.statusCode === 200) {
+          showModal('modal-container');
+          console.log("Server Side Validation Worked");
+        } else {
+          console.log("Server Side Validation is invalid");
+          showMessage(data);
+         
+        } 
+      })
+      .catch(error => {
         console.error('Error:', error);
-        console.log('Error during post');
-        }); 
+        console.log("Catch error message ", error.message);
+      });
+   
 }
 //Listener function attached to the submit buttom
 document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -149,10 +176,8 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     if(validateFormData(data)){
         console.log("Form is valid", data);  
         //Remove input outline
-       //DISABLE SUBMIT FORM DATA FOR TESTING
+        //DISABLE SUBMIT FORM DATA FOR TESTING
         submitFormData(data); 
-        showModal('modal-container');
-      /*   submittedText.style.display = 'block'; */
         returnhomediv.style.display = 'block'; 
         removeOutline();
         this.reset();
