@@ -393,10 +393,10 @@ margin-right: 8px;
   }
 
 #submitted-message{
-    font-size: 18px;
-    font-weight: 600;
-    outline: #0ac30d 2px solid;
-    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    outline: #bd0202 1px solid;
+    padding: 8px;
     display: none;
     border-radius: 5px;
 }
