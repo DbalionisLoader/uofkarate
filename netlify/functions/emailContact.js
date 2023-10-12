@@ -3,7 +3,8 @@
 /* Library */
 const nodemailer = require('nodemailer');
 require('dotenv').config();
-
+const { validateForm } = require('./emailValidator');
+const { json } = require('express');
 //Netlify function
 exports.handler = async function(event, context){
     //Test ZONE
@@ -12,6 +13,16 @@ exports.handler = async function(event, context){
     if(event.httpMethod !== "POST") {
         return {statusCode: 405, body: "POST method not allowed"}
     }
+
+    const formData = JSON.parse(event.body);
+    const validationResponse = validateForm(formData);
+
+    if (validationResponse) {
+        // If validation fails, return the response object
+        console.log("validation response is incorrect");
+        return validationResponse;
+      }
+
     //Fetch contact form data
     const {name, email, subject, message} = JSON.parse(event.body);
     //Create nodemail trasporter object - Authenticate gmail using OAuth2
@@ -37,7 +48,7 @@ exports.handler = async function(event, context){
     console.log(mailOptions);
     
     //Send mail try - catch
-    try{
+    try{   
         await transporter.sendMail(mailOptions)
         return {statusCode: 200, body: JSON.stringify("Message sent")};
     } catch (error) {

@@ -95,6 +95,25 @@ function validateFormData(data){
     return isFormValid;
 }
 
+/* Modal open function  */
+const showModal = (modalContent) =>{
+ 
+    modalContainer = document.getElementById(modalContent);
+    if(modalContainer){
+            modalContainer.classList.add('show-modal')
+    }
+};
+/* Modal close function */
+
+
+function closeModal(){
+    let modalContainer = document.getElementById('modal-container');
+    modalContainer.classList.remove('show-modal');
+};
+
+
+
+/* Function to call emailcontact serverless function to create and send a nodemail email to gmail */
 function submitFormData(data){
     
     fetch('/.netlify/functions/emailContact', {
@@ -112,8 +131,10 @@ function submitFormData(data){
         console.log('Error during post');
         }); 
 }
+//Listener function attached to the submit buttom
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-        
+  
+    
     console.log("clicked submit");   
     e.preventDefault(); 
 
@@ -128,13 +149,19 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     if(validateFormData(data)){
         console.log("Form is valid", data);  
         //Remove input outline
+       //DISABLE SUBMIT FORM DATA FOR TESTING
+        submitFormData(data); 
+        showModal('modal-container');
+      /*   submittedText.style.display = 'block'; */
+        returnhomediv.style.display = 'block'; 
         removeOutline();
-        /* submitFormData(data);  */
-        submittedText.style.display = 'block';
-        returnhomediv.style.display = 'block';
         this.reset();
     } else {
         console.log("Form validation failed", data);
         submittedText.style.display = 'none'; 
     }
-});
+});  
+     //Fetch all close buttons - one in this case, add x icon in future
+     const closeBtn = document.querySelector('.close-modal');
+     closeBtn.addEventListener("click", closeModal);
+   

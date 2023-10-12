@@ -2,7 +2,6 @@
 layout: base.njk
 title: contact-us
 ---
-
 <section aria-label="Contact us banner" class="hero-section contact-us-hero  d-flex align-items-end">
     <div class="container text-white contact-subheading">
         <h1 tabindex="0" role="heading" aria-level="1" class="mb-4">Contact us</h1>
@@ -19,12 +18,12 @@ title: contact-us
     <div class="col-md-6 mb-4 mb-md-0">
         <label for="name" class="form-label">Name</label>
         <input type="text" placeholder="Your Name" class="form-control" id="name" name="name" required>
-        <div class="error-message" id="nameError">Name is required.</div>
+        <div class="error-message mt-1" id="nameError">Name is required.</div>
     </div>
     <div class="col-md-6">
         <label for="email" class="form-label">Email Address</label>
         <input type="email" placeholder="Your email address" class="form-control" id="email" name="email" required >
-        <div class="error-message" id="emailError">A valid email is required.</div>
+        <div class="error-message mt-1" id="emailError">A valid email is required.</div>
     </div>
     </div>
     <!-- Add additional fields as necessary... -->
@@ -32,21 +31,38 @@ title: contact-us
     <div class="col-12 mb-4">
         <label for="subject" class="form-label">Subject</label>
         <input type="text" placeholder="E.g., Membership Inquiry, Event Question, Coaching Information" class="form-control" id="subject" name="subject" required>
-        <div class="error-message" id="subjectError">A subject is required.</div>
+        <div class="error-message mt-1" id="subjectError">A subject is required.</div>
     </div>
     <div class="col-12 mb-4">
         <label for="message" class="form-label">Message</label>
         <textarea class="form-control" placeholder="Let us know how we can assist you. E.g., inquire about our membership, upcoming events, or coaching sessions."  id="message" name="message" required></textarea>
-        <div class="error-message" id="messageError">A message is required.</div>
+        <div class="error-message mt-1" id="messageError">A message is required.</div>
     </div>
     </div>
     <div class="d-flex flex-column flex-md-row gap-4 align-items-center">
     <button type="submit" class="form-button btn ">Send</button>
-    <div id="submitted-message">Thank you for your message. It has been sent!</div>
+    {# <div id="submitted-message">Thank you for your message. It has been sent!</div> #}
     <div id="return-home"><a href="/">Return to homepage</a></div>
     </div>
 </form>
-
+        <div class="modal__container" id="modal-container">
+            <div class="modal__content">
+               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 4.697v4.974A4.491 4.491 0 0 0 12.5 8a4.49 4.49 0 0 0-1.965.45l-.338-.207L16 4.697Z"/>
+                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+                </svg>
+                <h1 class="modal__title mt-4">Message has been sent!</h1>
+                <p class="modal__description">Click the button to return home</p>
+                   <a href="/">
+                    <button class="modal__button modal__button-width">
+                        Return home
+                    </button></a>
+                    <button class="modal-button-link close-modal">
+                        Close
+                    </button>
+                </div>
+        </div>
 </section>
 </div>
+
 {# <script defer src="../js/contact-form-validation.js"></script>  #}
