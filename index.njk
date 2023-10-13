@@ -3,7 +3,7 @@ layout: base.njk
 eleventyImport:
   collections: ["posts"]
 ---    
-
+{# HERO SECTION #}
     <div class="hero-section-wrap container px-4 p-md-0"> 
       <div class="row">
        <div class="col-md-6 order-2 order-md-1 header-wrap">  
@@ -16,6 +16,7 @@ eleventyImport:
      </div>
     </div>
     </div>
+{# QUICK INFO BANNER #}    
     <div class="container-fluid selling-point-wrap">
     <div class="container club-bits my-5 py-3 py-md-4">
       <div class="row">
@@ -27,7 +28,7 @@ eleventyImport:
       </div>
     </div>
   </div>
-
+{# ABOUT SECTION #}
    <section class="about-wrap container p-4 p-md-0">
         <div class="row"> 
              <!-- Image section left of text -->
@@ -45,11 +46,10 @@ eleventyImport:
             </div>
         </div>
     </section>
-    {# Timetable section #}
+{# SCHEDULE SECTION #}
     <section class="container-fluid bg-dark text-light class-times py-5">
-      
-      <div class="container mt-0 mt-md-5  mb-2 mb-md-5 ">
-      <div class="mb-4 mb-md-5 pb-2 border-bottom"><h1>UofL Training Schedule</h1></div>
+    <div class="container mt-0 mt-md-5  mb-2 mb-md-5 ">
+         <div class="mb-4 mb-md-5 pb-2 border-bottom"><h1>UofL Training Schedule</h1></div>
         
     <div class="row  g-2 g-lg-5">
         <!-- Card 1 -->
@@ -59,7 +59,7 @@ eleventyImport:
                 <div class="card-body">
                     <h5 class="card-title d-flex justify-content-between align-items-center ">
                         Monday Training
-                        <i class="fas fa-icon-name"></i> <!-- Replace icon-name with desired icon -->
+                      {#   <i class="fas fa-icon-name"></i> #} <!-- Replace icon-name with desired icon -->
                     </h5>
                     <div class="card-text">
                         <h6 class="mb-2 text-secondary">Instructor: Sensei Chris & Jan</h6>
@@ -79,7 +79,7 @@ eleventyImport:
                 <div class="card-body">
                     <h5 class="card-title d-flex justify-content-between align-items-center">
                       Wednesday Training
-                        <i class="fas fa-icon-name"></i>
+                        {# <i class="fas fa-icon-name"></i> #}
                     </h5>
                     <div class="card-text">
                         <h6 class="mb-2 text-secondary">Instructor: Sensei Chris & Jan</h6>
@@ -99,7 +99,7 @@ eleventyImport:
                 <div class="card-body">
                     <h5 class="card-title d-flex justify-content-between align-items-center">
                         Friday Training
-                        <i class="fas fa-icon-name"></i>
+                      {#   <i class="fas fa-icon-name"></i> #}
                     </h5>
                     <div class="card-text">
                         <h6 class="mb-2 text-secondary">Instructor: Sensei Chris</h6>
@@ -108,13 +108,15 @@ eleventyImport:
                         <h6 class="mb-2"><b>Advanced Level</b></h6>
                         <h6 class="mb-2">Time: Friday 8:30-9:30pm</h6>
                    </div>
-             </div>
+                </div>
                     <div class="card-footer border-1">
                         <h6 class="mb-2"><i class="bi bi-geo-alt-fill pe-2" aria-label="Location icon"></i>Activity Room, Sports & Fitness Centre</h6>
                     </div>
+            </div>
         </div>
-    </div>
-</div>
+        </div>
+        <div class="schedule-link mt-2"><a href="/session-timetable/"><h4>View full timetable<i class="bi bi-arrow-right ps-2"></h4></a></i></div>
+    </div>   
     </section>
     <section class="container event-wrapper">
       <div class="event-header mb-4 mb-md-5 pb-2 border-bottom">

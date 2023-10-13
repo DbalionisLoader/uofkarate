@@ -233,18 +233,70 @@ margin-right: 8px;
 }
 
 
-/* Class Times section */
+/* ==CLASS SCHEDULE SECTION== */
 
 .timetable-wrap{
     padding-top: 150px;
     padding-bottom: 150px;
 }
 
+
+
 .class-times p{
     font-size: 16px;
 }
 
+.secondary-table-text-emphasis {
+    color: #cbcbd1;
 
+}
+
+.primary-table-text-emphasis{
+    font-size: 16px;
+}
+/* .table-responsive{
+    width: 100% !important;
+    overflow-x: scroll; 
+} */
+
+ .custom-table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+ 
+
+ th,td{
+    min-width: calc(1260px / 8);
+}
+
+
+ th:hover,td:hover{
+    background-color: #2c3136 !important;
+}
+ 
+ .cell-background {
+    background-color: #212b58 !important;
+ }
+.cell-background-darker {
+    background-color: #374790 !important;
+} 
+
+@media((max-width: 751px)) {
+    .timetable-wrap{
+        padding-top: 40px;
+        padding-bottom: 50px;
+        transition: all 0.3s;
+    }
+
+    th,td{
+        min-width: 80px;
+        transition: all 0.3s;
+    }
+}
 
 /* Class schedule cards */
 
@@ -256,6 +308,16 @@ margin-right: 8px;
 .card-body h6{
     font-size: 1rem;
 }
+
+.schedule-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.schedule-link a:hover {
+    text-decoration: underline;
+}
+
 
 
 
@@ -321,7 +383,7 @@ margin-right: 8px;
     color: white;
     font-size: 48px;
     font-weight: 600;
-    line-height: 1.3rem;
+    line-height: 1.3em;
     margin: 0;
   }
 
