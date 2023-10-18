@@ -28,7 +28,7 @@ module.exports = function(eleventyConfig) {
         return format(new Date(dateStr), 'MMMM d, yyyy - h:mm a');
       });
       /* luxon date time filter - to fix local time incorrectly display on live website */
-      eleventyConfig.addFilter("formatDatetime", function(dateStr) {
+      eleventyConfig.addFilter("formatDatetimeLux", function(dateStr) {
         const dateTime = DateTime.fromISO(dateStr).setZone("Europe/London"); // Set the time zone to GMT+1
         return dateTime.toFormat('MMMM d, yyyy - h:mm a'); // Format the date and time
       });
