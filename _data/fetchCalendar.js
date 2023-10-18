@@ -19,6 +19,7 @@ require('dotenv').config();
 //Create creadiant object 
 /*  const crediantials = JSON.parse(fs.readFileSync('uol-karate-events-513d09d09e24.json','utf8'));  */
  const credentials = JSON.parse(process.env.CREDS); 
+ const CAL_TEST_ID = process.env.CAL_TEST_ID;
 
 async function fetchGoogleCalenderEvents() {
     const client = auth.fromJSON(credentials); //Authenticate user object
@@ -29,7 +30,7 @@ async function fetchGoogleCalenderEvents() {
 
     //Fetch event list with parameters
     const response = await calendar.events.list({
-        calendarId: 'karate.uol@gmail.com', //from which calendar
+        calendarId: CAL_TEST_ID, //from which calendar
         maxResults: 5, //no of results
         singleEvents: true, //single occurance of recurring events
         orderBy: 'startTime', //sort by start time
