@@ -139,7 +139,7 @@ eleventyImport:
             
             <!-- Event Details Section -->
             <div class="col-9 col-lg-7 d-flex flex-column justify-content-center py-3 px-lg-3 order-third sorder-lg-second">
-                <small class="mb-2">{{ event.start | formatDatetime }}</small>
+                <small class="mb-2">{{ event.start | formatDatetimeLux }}</small>
                 <h4 class="mb-2">{{ event.summary }}</h4>
                 <p class="mb-2">{{event.desciption}}</p> 
                 <small class="mb-2"><i class="bi bi-geo-alt-fill pe-2"></i>{{event.location}}</small>

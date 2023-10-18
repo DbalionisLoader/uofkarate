@@ -1,6 +1,7 @@
 
 const eleventyGoogleFonts = require("eleventy-google-fonts");
 const {format, formatDistanceToNow } = require('date-fns');
+const { DateTime } = require('luxon');
 
 module.exports = function(eleventyConfig) {
     
@@ -26,6 +27,12 @@ module.exports = function(eleventyConfig) {
       eleventyConfig.addFilter("formatDatetime", function(dateStr){
         return format(new Date(dateStr), 'MMMM d, yyyy - h:mm a');
       });
+      /* luxon date time filter - to fix local time incorrectly display on live website */
+      eleventyConfig.addFilter("formatDatetimeLux", function(dateStr) {
+        const dateTime = DateTime.fromISO(dateStr);
+        return dateTime.toLocaleString(DateTime.DATETIME_MED); // Use a predefined format for medium-length date and time
+      });
+
 
       //Weekday and day of the month filter
       eleventyConfig.addFilter("formatWeekDay", function(dateStr){
