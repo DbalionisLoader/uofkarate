@@ -51,7 +51,7 @@ eleventyImport:
     <div class="container mt-0 mt-md-5  mb-2 mb-md-5 ">
          <div class="mb-4 mb-md-5 pb-2 border-bottom"><h1>UofL Training Schedule</h1></div>
         
-    <div class="row  g-2 g-lg-5">
+    <div class="row g-2 g-lg-5">
         <!-- Card 1 -->
         <div class="col-md-4 mb-4">
             <div class="card border-0 rounded-bottom-3 rounded-top-4 h-100">
@@ -118,21 +118,21 @@ eleventyImport:
         <div class="schedule-link mt-2"><a href="/session-timetable/"><h4>View full timetable<i class="bi bi-arrow-right ps-2"></h4></a></i></div>
     </div>   
     </section>
-    <section class="container event-wrapper">
-      <div class="event-header mb-4 mb-md-5 pb-2 border-bottom">
+    <section class="container event-wrapper p-1 p-lg-0">
+      <div class="event-header mb-4 mb-md-5 pb-2 border-bottom mx-3 mx-lg-2">
         <h1>Upcoming Karate Club Events</h1>
       </div>
       
 
-      <div class="container d-flex flex-column justify-content-left p-0 mt-3 ">
+      <div class="container d-flex flex-column justify-content-left  mt-3">
     {% if calendarEvents | length == 0 %}
     <div><h4 class="text-secondary" tabindex="0">No upcoming events</h4></div>
     {% else %} 
     {% for event in calendarEvents %}
-    <div class="card event-card border-0 mb-4" >
-        <div class="row no-gutters">
-            <!-- Date Section -->
-            <div class="col-3 col-md-2 pe-1 px-lg-5 m-auto d-flex flex-column justify-content-center align-items-center border-right order-second order-lg-first event-date">
+    <div class="card event-card border-0 rounded-3 mb-4 mx-0 " >
+        <div class="row g-0">
+            <!-- Date Section   pe-1 pe-sm-2-->
+            <div class="col-3 col-md-2 px-2 px-lg-5 m-auto d-flex flex-column justify-content-center align-items-center border-right order-second order-lg-first event-date">
                 <h5 class="mb-0 pb-2 text-center">{{ event.start | formatWeekDay }}</h5>
             </div>
             
@@ -145,7 +145,7 @@ eleventyImport:
             </div>
             
             <!-- Image Section -->
-            <div class="card-image col-12 col-lg-3 order-first order-lg-last">
+            <div class="card-image col-12 col-lg-3 order-first order-lg-last rounded-3">
                 <img src="./images/karate-group-1.png" alt="Event Image" class="img-fluid h-100">
             </div>
         </div>

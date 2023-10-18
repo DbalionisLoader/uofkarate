@@ -18,6 +18,7 @@ cards.forEach((card, index) => {
     const cardImage = card.querySelector('.card-image img');
     if (imageUrlArr[index]){
         cardImage.setAttribute('src', `./images/${imageUrlArr[index]}`);
+        cardImage.style.borderRadius = '0.5rem 0.5rem';
     }
 });
 

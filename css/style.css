@@ -101,7 +101,7 @@ margin-right: 8px;
 }
 
 .social-wrap .insta {
-   color: #9d35b8;
+   color: #d93175;
 }
 
 .social-wrap .tube {
@@ -134,13 +134,7 @@ margin-right: 8px;
     margin-bottom: 150px;
 }
 
-@media (max-width: 960px){
-    .hero-section-wrap{
-        margin-top: 16px;
-        margin-bottom: 16px;
-    }
-   
-}
+
 
 
 .header-wrap h1{
@@ -185,7 +179,16 @@ margin-right: 8px;
   height: 50px;
 }
 
-
+@media (max-width: 960px){
+    .hero-section-wrap{
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .header-wrap p{
+        padding-right: 24px
+    }
+   
+}
 
 .club-bits p {
     color: white;
