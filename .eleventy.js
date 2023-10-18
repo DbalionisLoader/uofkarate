@@ -24,6 +24,7 @@ module.exports = function(eleventyConfig) {
 
       /* Date/Time filters for event times */ 
       /* Full event date filter */   
+      /* ISSUE: display netlify server local time which is UTC */
       eleventyConfig.addFilter("formatDatetime", function(dateStr){
         return format(new Date(dateStr), 'MMMM d, yyyy - h:mm a');
       });
