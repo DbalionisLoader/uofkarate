@@ -22,25 +22,33 @@ exports.handler = async function(event, context){
         console.log("validation response is incorrect");
         return validationResponse;
       }
-
+  
+      /* pass: process.env.APP_PASS */ 
+     /*  type: 'OAuth2', */
+  /*  user: process.env.GMAIL_USER,
+      clientId: process.env.OAUTH_CLIENT_ID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN,   */
     //Fetch contact form data
     const {name, email, subject, message} = JSON.parse(event.body);
     //Create nodemail trasporter object - Authenticate gmail using OAuth2
     //Refresh token might need to be changed to send email to correct imbox
+    console.log("New email made");
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            type: 'OAuth2',
-            user: process.env.GMAIL_USER,
-            clientId: process.env.OAUTH_CLIENT_ID,
-            clientSecret: process.env.OAUTH_CLIENT_SECRET,
-            refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+            user: process.env.CAL_TEST_ID,
+            pass: process.env.APP_PASS
         }
     });
     //Create email message - Need to add a user from field
     let mailOptions = {
-        from: `${email}`,
-        to: process.env.GMAIL_USER,
+        from: {
+            name: `${name} <${email}>`,  
+            address: `<${email}>`
+        },
+        to: `${process.env.CAL_TEST_ID}`,
+        replyTo: `${email}`, 
         subject: `${subject}`,
         html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -140,14 +148,17 @@ exports.handler = async function(event, context){
             <body style="background-color: white; font-family: 'Fire Sans',Helvetica,Arial,sans-serif; font-size: 16px; width: 100% !important; margin: 0 !important; padding: 0; line-height: 1.5;">
                 <table class="container" cellspacing="0" cellpadding="0" border="0">
                     <tr>
+                      <td> <img src="cid:logo1" alt="Karate logo" style="width:100px;height:100px;"> </td>
+                    </tr>
+                    <tr>
                         <td class="row">
-                            <p class="header">New message from Karate Club contact form</p>
+                            <h2 class="header">New message for the Karate Club!</h2>
                         </td>
                     </tr>
                     <tr>
                         <td class="row">
                             <p class="header">Message From:</p>
-                            <p>${name}</p>
+                            <p>${name} at ${email}</p> 
                         </td>
                     </tr>
                     <tr>
@@ -164,10 +175,15 @@ exports.handler = async function(event, context){
                     </tr>
                 </table>
             </body>
-        </html>`
+        </html>`,
+        attachments: [{
+          filename: 'karatelogoemail.png',
+          path: process.cwd() + '/images/karatelogoemail.png',
+          cid: 'logo1' //same cid value as in the html img src
+}]
     };
 
-    console.log(mailOptions);
+    console.log(mailOptions.from);
     
     //Send mail try - catch
     try{   

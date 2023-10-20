@@ -133,7 +133,7 @@ function submitFormData(data){
     
     .then(response => {
         console.log('Full response:', response); // Log the entire response
-      //  responseFromServer = response;  Store the response in the variable
+        responseFromServer = response; // Store the response in the variable
         if (response.ok) {
             showModal('modal-container');
             return response.json();
@@ -143,8 +143,7 @@ function submitFormData(data){
       })
       .then(data => {
         console.log('Data from server:', data);
-        if (data.statusCode === 200) {
-          showModal('modal-container');
+        if (responseFromServer.ok) {
           console.log("Server Side Validation Worked");
         } else {
           console.log("Server Side Validation is invalid");
