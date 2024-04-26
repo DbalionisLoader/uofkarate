@@ -24,14 +24,15 @@ exports.handler = async function(event, context){
         console.log("validation response is incorrect");
         return validationResponse;
       }
-  
-      /* pass: process.env.APP_PASS */ 
-     /*  type: 'OAuth2', */
-  /*  user: process.env.GMAIL_USER,
+/* OAUTH2 TOKEN AUTHENTICATION - FOR REFERENCE -  */
+    /*pass: process.env.APP_PASS 
+      type: 'OAuth2', */
+    /*user: process.env.GMAIL_USER,
       clientId: process.env.OAUTH_CLIENT_ID,
       clientSecret: process.env.OAUTH_CLIENT_SECRET,
       refreshToken: process.env.OAUTH_REFRESH_TOKEN,   */
-    //Fetch contact form data
+   
+      //Fetch contact form data
     const {name, email, subject, message} = JSON.parse(event.body);
     //Create nodemail trasporter object - Authenticate gmail using OAuth2
     //Refresh token might need to be changed to send email to correct imbox
@@ -43,10 +44,13 @@ exports.handler = async function(event, context){
             pass: process.env.APP_PASS
         }
     });
- /*    from: {
+
+    /* Use address object in this format to overwrite gmail sender name and email address */
+    /*    from: {
       name: `${name} <${email}>`,  
-      address: `<${email}>`
-  }, */
+      address: `<${email}>`}, */
+
+
     //Create email message - Need to add a user from field
     let mailOptions = {
       from: {
@@ -66,7 +70,7 @@ exports.handler = async function(event, context){
 
     console.log(mailOptions.from);
     
-    //Send mail try - catch
+    //try - catch to send nodemailer email and return a response message
     try{   
         await transporter.sendMail(mailOptions)
         return {statusCode: 200, body: JSON.stringify("Message sent")};
