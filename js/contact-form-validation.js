@@ -1,5 +1,21 @@
 console.log("Form validation script connected");
 
+/* Order of operations
+  1. Listen for form submission
+  2. Prevent default submission
+  3. Gather all input fields from the form to create FormData object
+  4. Convert formData object to plain js "data" object
+  5. Local validation "validateFormData(data)" if true
+  6. Call submitFormData(data); function to initial network request to run the serveless function "emailContact"
+  7. "emailContact" runs server-side validation and create and send nodemail mail object and wait for response 
+  8. If response ok - show success modal and reset form
+  9. If response NOT ok - show error message from response at bottom of form
+  10. Show return link button
+  11. Reset form validation outlines and fields 
+*/
+
+
+
 /* Global  Utility */
 
 //Function to remove input and text field outlines after form submitted and reset
@@ -81,7 +97,7 @@ function validateFormData(data){
 
 
     //Name validation
-    isFormValid = validateNonEmpty('name', data.name) && isFormValid; //if form invalid from any other field = false
+    isFormValid = validateNonEmpty('name', data.name) && isFormValid; //Check using boolean logic is both statements are true - if any turn false, the final form validation will be false
 
     //Email validation
     isFormValid = validateEmail('email', data.email) && isFormValid;
@@ -92,6 +108,7 @@ function validateFormData(data){
     //Message validaiton
     isFormValid = validateNonEmpty('message', data.message) && isFormValid; 
 
+    //returns true as long as t
     return isFormValid;
 }
 
@@ -132,8 +149,10 @@ function submitFormData(data){
     })
     
     .then(response => {
-        console.log('Full response:', response); // Log the entire response
-        responseFromServer = response; // Store the response in the variable
+       // Log the entire response
+        console.log('Full response:', response); 
+       // Store the response in the variable
+        responseFromServer = response; 
         if (response.ok) {
             showModal('modal-container');
             return response.json();
@@ -147,6 +166,7 @@ function submitFormData(data){
           console.log("Server Side Validation Worked");
         } else {
           console.log("Server Side Validation is invalid");
+          //Call showMessage function to output error message to UI
           showMessage(data);
          
         } 
@@ -157,6 +177,8 @@ function submitFormData(data){
       });
    
 }
+
+// MAIN FUNCTION
 //Listener function attached to the submit buttom
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   
@@ -164,17 +186,21 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     console.log("clicked submit");   
     e.preventDefault(); 
 
+    //Console log form input for testing - not crucial 
     const submittedText = document.getElementById('submitted-message');
     const returnhomediv = document.getElementById('return-home');     
     console.log(submittedText);
-    //Get form data from form object    
+    // END OF FORM INPUT CONSOLE LOG
+
+    //Get for input key value pairs from the form  
     const formData = new FormData(this);
-    //Pass form data to data object
+    //Convert formdate into a plain js "data" object of key value pairs - to allow use of dot notation and work with other library functions.
     const data = Object.fromEntries(formData);
 
+    //Run client side validation  
     if(validateFormData(data)){
         console.log("Form is valid", data);  
-        //Remove input outline
+        //Run submiteformData function to create a email 
         //DISABLE SUBMIT FORM DATA FOR TESTING
         submitFormData(data); 
         returnhomediv.style.display = 'block'; 

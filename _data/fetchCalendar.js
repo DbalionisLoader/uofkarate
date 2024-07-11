@@ -12,12 +12,13 @@ console.log("Data js connected");
 const {google} = require('googleapis'); /* Required for google object import */
 const {auth} = require('google-auth-library'); /* Required for auth object */
 const fs = require('fs'); /* node.js file system to read json and write to json*/
-const axios = require('axios'); /* Promise bases ? HTTP client */
-const { Console } = require('console');
+const axios = require('axios'); /* Promise based HTTP client library to make GET, POST, PUT AND DELETE request and receive a handle responses */
+const { Console } = require('console'); //Write logs to file library - not used
 require('dotenv').config(); 
 
 //Create creadiant object 
 /*  const crediantials = JSON.parse(fs.readFileSync('uol-karate-events-513d09d09e24.json','utf8'));  */
+//Convert JSON keys and user (email) id string into js object
  const credentials = JSON.parse(process.env.CREDS); 
  const CAL_TEST_ID = process.env.CAL_TEST_ID;
 
