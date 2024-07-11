@@ -22,12 +22,15 @@ require('dotenv').config();
  const credentials = JSON.parse(process.env.CREDS); 
  const CAL_TEST_ID = process.env.CAL_TEST_ID;
 
-async function fetchGoogleCalenderEvents() {
+
+
+ async function fetchGoogleCalenderEvents() {
     const client = auth.fromJSON(credentials); //Authenticate user object
     client.scopes = ['https://www.googleapis.com/auth/calendar.readonly']; //Scope to read only calendar
 
     //Initialize google calendar API client - version and authenticate object
     const calendar = google.calendar({version: 'v3', auth: client});
+
 
     //Fetch event list with parameters
     const response = await calendar.events.list({
@@ -56,3 +59,4 @@ async function fetchGoogleCalenderEvents() {
 }
 
 //call function - DELETE TO PREVENT DOUBLE API CALL
+fetchGoogleCalenderEvents();
