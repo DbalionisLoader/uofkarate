@@ -66,11 +66,6 @@ exports.handler = async function(event, context){
         replyTo: `${email}`, 
         subject: `${subject}`,
         html: html_template(name,email,subject,message),
-        attachments: [{
-          filename: 'karatelogoemail.png',
-          path: process.cwd() + '/images/karatelogoemail.png',
-          cid: 'logo1' //same cid value as in the html img src
-}]
     };
 
     console.log(mailOptions.from);

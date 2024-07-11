@@ -99,7 +99,7 @@ module.exports = {
             <body style="background-color: white; font-family: 'Fire Sans',Helvetica,Arial,sans-serif; font-size: 16px; width: 100% !important; margin: 0 !important; padding: 0; line-height: 1.5;">
                 <table class="container" cellspacing="0" cellpadding="0" border="0">
                     <tr>
-                      <td> <img src="cid:logo1" alt="Karate logo" style="width:100px;height:100px;"> </td>
+                      <td> <img src="https://scontent.flba3-1.fna.fbcdn.net/v/t39.30808-6/348315519_1308741553326014_4493769888862600165_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_HGXHlp0okAQ7kNvgHWQGZS&_nc_ht=scontent.flba3-1.fna&oh=00_AYBemaI5OPbaVENFfI1w_y8tHEOrWuwVmckgWwvE6PpnnA&oe=6695CA0C" alt="Karate logo" style="width:100px;height:100px;"> </td>
                     </tr>
                     <tr>
                         <td class="row">
