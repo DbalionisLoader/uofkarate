@@ -181,7 +181,7 @@ margin-right: 8px;
     width: 200px;
     height: 52px;
     font-size: 18px;
-    font-weight: 600px;
+    font-weight: 600;
     letter-spacing: 1px;
     border: none;
     border-radius: 10px;
@@ -283,10 +283,6 @@ margin-right: 8px;
 .primary-table-text-emphasis{
     font-size: 16px;
 }
-/* .table-responsive{
-    width: 100% !important;
-    overflow-x: scroll; 
-} */
 
  .custom-table {
     display: block;
@@ -398,11 +394,11 @@ margin-right: 8px;
 
 .hero-section {
     background:  linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(28,34,34,0.7811857164740896) 90%) , url('../images/sitting-karate-1920.jpg');
-    background-size: cover; /* Ensure the image covers the full width and height */
-    background-position: center center; /* Center the background image */
-    height: 480px; /* You can adjust this value based on your desired cropping */
-    width: 100%; /* Full width */
-    position: relative; /* Establish a stacking context for child elements */
+    background-size: cover; 
+    background-position: center center; 
+    height: 480px; 
+    width: 100%;
+    position: relative; 
     padding-bottom: 150px;
     z-index: 1;
   }
@@ -474,12 +470,10 @@ margin-right: 8px;
 }
 
 .form-control-error-outline {
-  /*   border: #e90606 1px solid; */
-    outline: #c30606 solid 1px;
+  outline: #c30606 solid 1px;
 }
 
 .form-control-valid-outline {
-    /*   border: #e90606 1px solid; */
       outline: #0ac30d solid 1px;
   }
 
