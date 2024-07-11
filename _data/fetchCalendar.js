@@ -1,10 +1,10 @@
 /* Node.js Google calendar API fetch - run only during build -
  need to webhook to auto build on calendar change */
  /* Required changes
-    - Add crediant file as enviroment variable to netlify
-    - request all needed json details about the events
-    - configure script auto run on build
-    - configure trigger to build on event update
+    - Add crediant file as enviroment variable to netlify - DONE
+    - request all needed json details about the events - DONE
+    - configure script auto run on build - DONE
+    - configure trigger to build on event update - DONE using pipedream
     - ensure past events are hidden */
 
 console.log("Data js connected");
@@ -56,4 +56,3 @@ async function fetchGoogleCalenderEvents() {
 }
 
 //call function - DELETE TO PREVENT DOUBLE API CALL
-fetchGoogleCalenderEvents();
